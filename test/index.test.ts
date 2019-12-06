@@ -5,15 +5,15 @@ import cmd = require('../src')
 describe('diff-env', () => {
   test
   .stdout()
-  .do(() => cmd.run([]))
-  .it('runs hello', ctx => {
-    expect(ctx.stdout).to.contain('hello world')
+  .do(() => cmd.run(['--against', './configs/matching.env']))
+  .it('Shows success message when config files match', ctx => {
+    expect(ctx.stdout).to.contain('√')
   })
 
   test
   .stdout()
-  .do(() => cmd.run(['--name', 'jeff']))
-  .it('runs hello --name jeff', ctx => {
-    expect(ctx.stdout).to.contain('hello jeff')
+  .do(() => cmd.run(['--against', './configs/missing.env']))
+  .it('Shows error message when config files do not match', ctx => {
+    expect(ctx.stdout).to.contain('𐄂')
   })
 })
