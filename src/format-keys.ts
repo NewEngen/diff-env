@@ -1,4 +1,4 @@
-import chalk = require('chalk')
+import * as chalk from 'chalk'
 
 // Type Deps
 import {TMissingKeys, TTableConfig, TPossibleKeys} from './types'
