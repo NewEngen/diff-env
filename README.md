@@ -2,9 +2,9 @@ diff-env
 ========
 Compare env files against eachother for missing or unset params
 
-[![Version](https://img.shields.io/npm/v/diff-env.svg)](https://www.npmjs.com/package/@newengen/diff-env)
-[![Downloads/week](https://img.shields.io/npm/dw/diff-env.svg)](https://www.npmjs.com/package/@newengen/diff-env)
-[![License](https://img.shields.io/npm/l/diff-env.svg)](https://github.com/NewEngen/diff-env/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@newengen/diff-env)](https://www.npmjs.com/package/@newengen/diff-env)
+[![Downloads/week](https://img.shields.io/npm/dm/@newengen/diff-env)](https://www.npmjs.com/package/@newengen/diff-env)
+[![License](https://img.shields.io/github/license/NewEngen/diff-env)](https://github.com/NewEngen/diff-env/blob/master/package.json)
 
 
 ## Quick Overview
