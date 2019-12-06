@@ -19,16 +19,15 @@ OPTIONS
   -v, --version          show CLI version
 ```
 
-### Install and setup
+#### Install and setup
 
-#### Single use
+##### Single use
 `npx diff-env -a ./some/config/path.env`
 
-Team workflow
-====================
-On large teams where multiple people are contributing to a base env file or times when uat / staging environments must use their own config file. Things can get out of sync. Save time by setting up `diff-env` to run automatically
+#### Team workflow
+On large teams where multiple people are contributing to a base env file or times when uat / staging environments must use their own config file At NewEngen we use [Husky](https://github.com/typicode/husky) to make sure diff-env runs after every pull as well as before deploying to our UAT instances to save time and frustration with having to fix a missing env parameter.
 
-###### Yarn
+##### Yarn
 `yarn add -D diff-env husky`
 
 ##### NPM
