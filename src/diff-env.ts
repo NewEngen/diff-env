@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import * as chalk from 'chalk'
 
 type TPossibleKeys = 'missing' | 'unset';
 
@@ -14,6 +15,7 @@ type TConfig = {
 type TTableConfig = {
   parameter: string;
   value: string;
+  status: string;
 }
 
 /**
@@ -26,15 +28,15 @@ type TTableConfig = {
  */
 const diffEnv = async (againstPath: string, checkPath: string | null = null): Promise<TMissingKeys | null> => {
   return new Promise((resolve, reject) => {
-    const { parsed: against } = dotenv.config({ path: againstPath });
-    const { parsed: check } = checkPath ? dotenv.config({ path: checkPath }) : dotenv.config();
+    const { parsed: against } = dotenv.config({ path: againstPath })
+    const { parsed: check } = checkPath ? dotenv.config({ path: checkPath }) : dotenv.config()
 
     // Throw errors if we can't find appropriate configs to match
     if (!against) { reject('Could not find env file with given path to use.') }
     if (!check) { reject('Could not find the secondary or bases env config.') }
 
-    const keys = findMissingKeys(<TConfig>against, <TConfig>check);
-    resolve(!keys.missing.length && !keys.unset.length ? null : keys);
+    const keys = findMissingKeys(<TConfig>against, <TConfig>check)
+    resolve(!keys.missing.length && !keys.unset.length ? null : keys)
   });
 };
 
@@ -76,7 +78,7 @@ const formatKeys = (keysObj: TMissingKeys): TTableConfig[] => {
     return prev.concat(
       keysObj[cur as TPossibleKeys].reduce((a: TTableConfig[], c: string) => {
         const [parameter, value] = c.split('=')
-        a.push({ parameter, value })
+        a.push({ parameter, value, status: cur === 'missing' ? chalk.red('missing') : chalk.yellow('unset') })
         return a
       }, [])
     )

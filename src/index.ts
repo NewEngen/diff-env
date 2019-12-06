@@ -1,5 +1,6 @@
-import cli from 'cli-ux';
 import {Command, flags } from '@oclif/command'
+import cli from 'cli-ux';
+import * as chalk from "chalk";
 import { diffEnv, formatKeys } from './diff-env';
 
 class DiffEnv extends Command {
@@ -12,25 +13,32 @@ class DiffEnv extends Command {
     against: flags.string({ char: 'a', required: true, description: 'path of the config you want to compare against.' }),
   }
 
-  static args = []
-
   async run() {
     const { flags } = this.parse(DiffEnv)
 
     try {
-      cli.action.start(`Checking ${flags.check} -> ${flags.against}`)
+      cli.action.start(
+        chalk.green(`Checking for missing/unset params in ${flags.check} using ${flags.against}`)
+      )
       const keys = await diffEnv(flags.against, flags.check)
-      cli.action.stop()
+      cli.action.stop(
+        !!keys
+          ? chalk.red.bold(`\n𐄂 - ${flags.check} does not match ${flags.against}\n`)
+          : undefined
+      )
 
       if(!!keys) {
         cli.table(formatKeys(keys), {
+          status: {},
           parameter: {
-            minWidth: 7
+            minWidth: 10
           },
           value: {}
         })
       } else {
-        this.log('Config files are matching!')
+        this.log(
+          chalk.green.bold(`√ - ${flags.check} matches ${flags.against}`)
+        )
       }
     } catch(err) {
       this.catch(err)
