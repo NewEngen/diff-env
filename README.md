@@ -2,9 +2,9 @@ diff-env
 ========
 Compare env files against eachother for missing or unset params
 
-[![Version](https://img.shields.io/npm/v/diff-env.svg)](https://npmjs.org/package/diff-env)
-[![Downloads/week](https://img.shields.io/npm/dw/diff-env.svg)](https://npmjs.org/package/diff-env)
-[![License](https://img.shields.io/npm/l/diff-env.svg)](https://github.com/newengen/diff-env/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/diff-env.svg)](https://www.npmjs.com/package/@newengen/diff-env)
+[![Downloads/week](https://img.shields.io/npm/dw/diff-env.svg)](https://www.npmjs.com/package/@newengen/diff-env)
+[![License](https://img.shields.io/npm/l/diff-env.svg)](https://github.com/NewEngen/diff-env/blob/master/package.json)
 
 
 ## Quick Overview
@@ -28,6 +28,10 @@ Team workflow
 ====================
 On large teams where multiple people are contributing to a base env file or times when uat / staging environments must use their own config file. Things can get out of sync. Save time by setting up `diff-env` to run automatically
 
+###### Yarn
+`yarn add -D diff-env husky`
+
+##### NPM
 `npm i -D diff-env husky`
 
 `package.json`

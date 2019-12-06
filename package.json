@@ -1,12 +1,12 @@
 {
   "name": "diff-env",
-  "description": "Compare env files against eachother for missing or unset params",
+  "description": "Compare env files against each other for missing or unset params",
   "version": "0.0.0",
-  "author": "jakec@newengen.com",
+  "author": "@newengen",
   "bin": {
     "diff-env": "./bin/run"
   },
-  "bugs": "https://github.com/newengen/diff-env/issues",
+  "bugs": "https://github.com/NewEngen/diff-env/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -36,7 +36,7 @@
     "/bin",
     "/lib"
   ],
-  "homepage": "https://github.com/newengen/diff-env#readme",
+  "homepage": "https://github.com/NewEngen/diff-env#readme",
   "keywords": [
     "oclif"
   ],
@@ -45,7 +45,7 @@
   "oclif": {
     "bin": "diff-env"
   },
-  "repository": "newengen/diff-env",
+  "repository": "https://github.com/NewEngen/diff-env",
   "scripts": {
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b",
